@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include "RealsensePixelPointConversionService.h"
 #include "../include/realsense_node_factory.h"
 #include <ddynamic_reconfigure/ddynamic_reconfigure.h>
 #include <ddynamic_reconfigure/param/dd_all_params.h>
@@ -12,6 +13,7 @@
 
 #include <queue>
 #include <mutex>
+#include <memory>
 
 namespace realsense2_camera
 {
@@ -217,6 +219,12 @@ namespace realsense2_camera
         void registerDynamicOption(ros::NodeHandle& nh, rs2::options sensor, std::string& module_name);
         rs2_stream rs2_string_to_stream(std::string str);
 
+        /**
+         * @brief Enable pixel point conversion service.
+         * @param profile Video stream profile.
+         */
+        void enablePixelPointConversionService(const rs2::video_stream_profile& profile);
+
         std::string _json_file_path;
         std::string _serial_no;
         float _depth_scale_meters;
@@ -277,6 +285,8 @@ namespace realsense2_camera
 
         std::map<stream_index_pair, bool> _is_frame_arrived;
         const std::string _namespace;
+
+        std::unique_ptr<RealsensePixelPointConversionService> _point_conversion_service;
 
     };//end class
 

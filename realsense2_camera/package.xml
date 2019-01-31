@@ -35,6 +35,11 @@
   <run_depend>tf</run_depend>
   <run_depend>ddynamic_reconfigure</run_depend>
   <run_depend>diagnostic_updater</run_depend>
+  <test_depend>gtest</test_depend>
+  <test_depend>gmock</test_depend>
+  <test_depend>gmock_main</test_depend>
+  <test_depend>rostest_gtest_main</test_depend>
+  <test_depend>rostest_gmock_main</test_depend>
   <export>
     <nodelet plugin="${prefix}/nodelet_plugins.xml" />
   </export>
