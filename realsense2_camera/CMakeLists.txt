@@ -88,7 +88,7 @@ add_library(${PROJECT_NAME}
     include/base_realsense_node.h
     src/realsense_node_factory.cpp
     src/base_realsense_node.cpp
-    src/RealsensePixelPointConversionService.cc
+    src/realsense_pixel_point_conversion_service.cc
     )
 
 add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}_generate_messages_cpp)
